@@ -10,6 +10,7 @@ const starIcon = require('../../assets/images/star.png');
 interface Props {
   rating?: Rating;
 }
+
 export function StarRating({rating}: Props) {
   if (!rating?.average) {
     return null;
