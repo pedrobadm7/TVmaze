@@ -34,7 +34,7 @@ export function EpisodeList({show}: Props) {
   const navigation = useNavigation();
 
   const {data} = useQuery([QueryKeys.EPISODE_LIST, show.id], () =>
-    showService.getEpisodes(show.id),
+    showService.getEpisodes(JSON.stringify(show.id)),
   );
 
   function navigateToEpisodeDetails(episode: Episode) {

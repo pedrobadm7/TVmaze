@@ -23,8 +23,11 @@ interface SearchShowResult {
   score: number;
   show: Show;
 }
+
 async function searchByName(searchText: string): Promise<Show[]> {
-  if (searchByName.length < 1) return [];
+  if (searchByName.length < 1) {
+    return [];
+  }
   const {data} = await api.get<SearchShowResult[]>(
     `search/shows/?q=${searchText}`,
   );
