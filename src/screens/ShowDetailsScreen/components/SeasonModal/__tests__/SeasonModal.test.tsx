@@ -1,8 +1,7 @@
 import React, {createRef} from 'react';
-import {Modalize} from 'react-native-modalize';
-import {act, fireEvent, render} from 'test-utils';
-
+import {render, act, fireEvent} from '@testing-library/react-native';
 import {SeasonModal} from '../SeasonModal';
+import {Modalize} from 'react-native-modalize';
 
 describe('SeasonModal', () => {
   test('show all season option', () => {
@@ -21,10 +20,11 @@ describe('SeasonModal', () => {
       modalizeRef.current?.open();
     });
 
-    expect(getAllByText(/season/i).length).toBe(3);
+    // expect(getAllByText('Season', {exact: false})).toHaveLength(3);
+    expect(getAllByText(/Season/i)).toHaveLength(3);
   });
 
-  test('call onSelectSeason with correct season when season option was pressed', () => {
+  test('call onSelectSeason with correct season when season was pressed', () => {
     const modalizeRef = createRef<Modalize>();
 
     const onSelectSeasonMock = jest.fn();

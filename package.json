@@ -53,18 +53,10 @@
   "jest": {
     "preset": "react-native",
     "setupFiles": [
-      "./jestSetupFile.js"
+     "./node_modules/react-native-gesture-handler/jestSetup.js"
     ],
     "setupFilesAfterEnv": [
-      "@testing-library/jest-native/extend-expect",
-      "./test/setup-env.js"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "./test"
-    ],
-    "modulePathIgnorePatterns": [
-      "mocks"
+      "@testing-library/jest-native/extend-expect"
     ],
     "moduleFileExtensions": [
       "ts",
